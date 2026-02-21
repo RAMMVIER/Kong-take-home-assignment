@@ -18,7 +18,7 @@ import './commands'
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   // 忽略跨域错误
-    if (err.message.includes('cross-origin')) {
+    if (err.message.includes('cross-origin') || err.message.includes('Script error')) {
         return false;
     }
     return true; // 其他错误仍然抛出
