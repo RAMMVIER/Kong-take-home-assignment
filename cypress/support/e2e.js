@@ -15,3 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // 忽略跨域错误
+    if (err.message.includes('cross-origin')) {
+        return false;
+    }
+    return true; // 其他错误仍然抛出
+});
