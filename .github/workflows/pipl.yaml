@@ -41,4 +41,4 @@ jobs:
       # Clean up Kong and Postgres containers
       - name: Clean up Docker Containers
         run: |
-          docker-compose down
+          docker compose down
