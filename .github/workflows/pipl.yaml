@@ -21,7 +21,7 @@ jobs:
       # Set up Docker Compose (use the existing docker-compose.yml in the repo)
       - name: Set up Docker Compose
         run: |
-          docker-compose -f docker-compose.yml up -d
+          docker compose -f docker-compose.yml up -d
 
       # Wait for Kong to be ready
       - name: Wait for Kong to start
@@ -36,7 +36,7 @@ jobs:
       # Run Cypress tests
       - name: Run Cypress tests
         run: |
-          npx cypress run --spec "cypress/e2e/*.cy.js"
+          npx cypress run --spec "cypress/e2e/*.cy.js" --browser chrome
 
       # Clean up Kong and Postgres containers
       - name: Clean up Docker Containers
